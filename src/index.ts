@@ -1,4 +1,3 @@
-import qrcode from 'qrcode-terminal';
 import {Client, LocalAuth} from 'whatsapp-web.js';
 import dotenv from 'dotenv';
 dotenv.config({path:'.env'});
@@ -12,16 +11,13 @@ const HasOpenAiKey = ()=>{
 
 HasOpenAiKey();
 
-
 const client = new Client({
     authStrategy: new LocalAuth()
 });
 
 client.on('qr', (qr) => {
     // Generate and scan this code with your phone
-    qrcode.generate(qr, {
-        small:true
-    });
+    console.log(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qr}`)
     console.log('qr code generated')
 });
 
@@ -54,5 +50,5 @@ async function main(messages:string) {
     });
     return chatCompletion.choices[0].message.content;
   }
-  
+
 
