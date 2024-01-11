@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "ts-node-dev src/index.ts --respawn --transpile-only ",
-    "start": "ts-node index.ts"
+    "start": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
